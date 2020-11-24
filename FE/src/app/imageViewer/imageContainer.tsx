@@ -19,7 +19,7 @@ function ImageContainer() {
         
         <div className={styles.Column}> 
             <img src={love} 
-                alt={"content"} 
+                alt={"style"} 
                 className={styles.imageViewer}/>
                 
         </div>
@@ -30,7 +30,7 @@ function ImageContainer() {
 
         <div className={styles.Column}> 
             <img src={love} 
-                alt={"content"} 
+                alt={"styled images"} 
                 className={styles.imageViewer}/>
                 
         </div>
