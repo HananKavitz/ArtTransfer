@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{PropsWithChildren} from 'react';
 import ImageContainer from '../imageViewer/imageContainer'
+import Uploader from '../buttonContainer/buttonCuntainer'
 
-function ImageUploadWrapper() {
+const ImageUploadWrapper = (props: any)  => {
   return (
       <div>
-        <ImageContainer />
+        <Uploader imageType = {'Content Image'}/>
+        <ImageContainer/>
       </div>
     
    
