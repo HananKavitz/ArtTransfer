@@ -1,13 +1,18 @@
-import React from 'react';
+import React,{ComponentProps} from 'react';
 
 import styles from './imageViewer.module.css';
-import love from '../../love.jpg'; // with import
 
-function ImageContainer() {
+interface IProps {
+    content: string;
+    style: string;
+    styled_image: string;
+}
+
+const ImageContainer = (props: IProps) => {
   return (
       <div>
         <div className={styles.Column}> 
-            <img src={love} 
+            <img src={props.content} 
                 alt={"content"} 
                 className={styles.imageViewer}/>
                 
@@ -18,7 +23,7 @@ function ImageContainer() {
         </div>
         
         <div className={styles.Column}> 
-            <img src={love} 
+            <img src={props.style} 
                 alt={"style"} 
                 className={styles.imageViewer}/>
                 
@@ -29,7 +34,7 @@ function ImageContainer() {
         </div>
 
         <div className={styles.Column}> 
-            <img src={love} 
+            <img src={props.styled_image} 
                 alt={"styled images"} 
                 className={styles.imageViewer}/>
                 
