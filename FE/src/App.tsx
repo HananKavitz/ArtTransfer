@@ -11,7 +11,7 @@ function App() {
       <h1 className={styles.h1}>Style transfer</h1>
       <div className = {styles.Row}>
         
-        <ImageContainer content = {cat} style = {kandinsky} styled_image = {styled_cat}/>
+        <ImageContainer content = {cat} style = {kandinsky} styled_image = {styled_cat} isImageUploader = {false}/>
       </div>
       <div className = {styles.Row}>
         <ImageUploadWrapper />

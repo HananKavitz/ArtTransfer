@@ -1,21 +1,24 @@
 import React,{ComponentProps} from 'react';
-
+import Uploader from '../buttonContainer/buttonCuntainer'
 import styles from './imageViewer.module.css';
 
 interface IProps {
     content: string;
     style: string;
     styled_image: string;
+    isImageUploader: boolean;
 }
 
 const ImageContainer = (props: IProps) => {
+    const contentUploader = props.isImageUploader?<Uploader imageType = {'Content Image'}/>: null;
+    const styleUploader = props.isImageUploader?<Uploader imageType = {'Style Image'}/>: null;
   return (
       <div>
         <div className={styles.Column}> 
             <img src={props.content} 
                 alt={"content"} 
                 className={styles.imageViewer}/>
-                
+            {contentUploader}
         </div>
         
         <div className={styles.Column}> 
@@ -26,7 +29,8 @@ const ImageContainer = (props: IProps) => {
             <img src={props.style} 
                 alt={"style"} 
                 className={styles.imageViewer}/>
-                
+            
+            {styleUploader}
         </div>
         
         <div className={styles.Column}> 
