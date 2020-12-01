@@ -1,6 +1,7 @@
 import React,{ComponentProps} from 'react';
-import Uploader from '../buttonContainer/buttonCuntainer'
+import Uploader from '../importButton/importButton'
 import styles from './imageViewer.module.css';
+import Exporter from '../exportButton/exportButton';
 
 interface IProps {
     content: string;
@@ -12,6 +13,7 @@ interface IProps {
 const ImageContainer = (props: IProps) => {
     const contentUploader = props.isImageUploader?<Uploader imageType = {'Content Image'}/>: null;
     const styleUploader = props.isImageUploader?<Uploader imageType = {'Style Image'}/>: null;
+    const exproter = props.isImageUploader?<Exporter imageType = {'Save Image'}/>: null;
   return (
       <div>
         <div className={styles.Column}> 
@@ -41,7 +43,7 @@ const ImageContainer = (props: IProps) => {
             <img src={props.styled_image} 
                 alt={"styled images"} 
                 className={styles.imageViewer}/>
-                
+            {exproter}
         </div>
       </div>
     
