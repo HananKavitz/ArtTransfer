@@ -11,9 +11,9 @@ interface IProps {
 }
 
 const ImageContainer = (props: IProps) => {
-    const contentUploader = props.isImageUploader?<Uploader imageType = {'Content Image'}/>: null;
-    const styleUploader = props.isImageUploader?<Uploader imageType = {'Style Image'}/>: null;
-    const exproter = props.isImageUploader?<Exporter imageType = {'Save Image'}/>: null;
+    const contentUploader = props.isImageUploader?<Uploader imageType = {'Content'}/>: null;
+    const styleUploader = props.isImageUploader?<Uploader imageType = {'Style'}/>: null;
+    const exproter = props.isImageUploader?<Exporter imageType = {'Download Image'}/>: null;
   return (
       <div>
         <div className={styles.Column}> 
