@@ -4,6 +4,10 @@ import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
+interface IProps {
+  imageType: string;
+}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -17,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function Uploader(props:any) {
+const Uploader = (props: IProps) => {
   const classes = useStyles();
 
   return (
@@ -26,16 +30,21 @@ export default function Uploader(props:any) {
         accept="image/*"
         className={classes.input}
         id="contained-button-file"
-        multiple
+        multiple = {false}
         type="file"
       />
       <label htmlFor="contained-button-file">
-        <Button variant="contained" color="primary" component="span" startIcon={<CloudUploadIcon />}>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          component="span" 
+          startIcon={<CloudUploadIcon />}>
           {props.imageType}
         </Button>
       </label>
-      <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
       
     </div>
   );
 }
+
+export default Uploader;

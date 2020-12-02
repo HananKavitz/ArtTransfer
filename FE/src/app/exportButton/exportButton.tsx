@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -19,22 +20,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Exporter(props:any) {
   const classes = useStyles();
+  
+  const downloadStyledImage = () => {
+    window.open('/downloadStyledImage')
 
+  };
+  
   return (
     <div className={classes.root}>
-      <input
-        accept="image/*"
-        className={classes.input}
-        id="contained-button-file"
-        multiple
-        type="file"
-      />
-      <label htmlFor="contained-button-file">
-        <Button variant="contained" color="primary" component="span" startIcon={<CloudDownloadIcon />}>
-          {props.imageType}
+      <label>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          component="span" 
+          startIcon={<CloudDownloadIcon />} 
+          onClick = {downloadStyledImage}>
+            {props.imageType}
         </Button>
       </label>
-      <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
       
     </div>
   );
