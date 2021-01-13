@@ -6,9 +6,9 @@ jobs:
     executor:
       name: node/default
       tag: '10.4'
-    working_directory: $(pwd)/FE
     steps:
       - checkout
+      - run: cd FE
       - run: echo "$(pwd)"
       - run: echo "$(ls -la)"
       - node/with-cache:
