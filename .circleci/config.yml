@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1
 jobs:
-  build:
+  FE_CI:
     executor:
       name: node/default
       tag: '12.16.1'
@@ -17,3 +17,17 @@ jobs:
             - run: npm install
       - run: npm run test
       - run: CI='' npm run build
+  Hello:
+    executor:
+      name: node/default
+      tag: '12.16.1' 
+    working_directory: ~/project/BE
+    steps:
+      - run: echo "Hello World"
+
+workflows:
+  version: 2
+  my_jobs: 
+    jobs: 
+      - FE_CI
+      - Hello
