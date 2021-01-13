@@ -6,11 +6,12 @@ jobs:
     executor:
       name: node/default
       tag: '10.4'
+    working_dir: ~/project/FE
     steps:
       - checkout
       - run: echo "$(pwd)"
       - run: echo "$(ls -la)"
       - node/with-cache:
           steps:
-            - run: cd FE && npm install
-      - run: cd FE && npm run test
+            - run: npm install
+      - run: npm run test
