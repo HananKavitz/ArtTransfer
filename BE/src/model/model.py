@@ -3,12 +3,12 @@ import tensorflow as tf
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 from pathlib import Path
-from src.utils.memory import limit_memory
+from utils.memory import limit_memory
 
 
-content_image_path = str(Path(__file__).parent / '../images/cat2.jpg')
-style_image_path = str(Path(__file__).parent / '../images/kandinsky.jpeg')
-styled_image_path = str(Path(__file__).parent / '../styled_images/kandinsky_style2.jpeg')
+content_image_path = str(Path(__file__).parent.parent / 'images/cat.jpeg')
+style_image_path = str(Path(__file__).parent.parent / 'images/kandinsky2.jpg')
+styled_image_path = str(Path(__file__).parent.parent / 'styled_images/kandinsky_style2.jpeg')
 
 limit_memory(5000)
 
@@ -24,11 +24,11 @@ style_image = style_image.astype(np.float32)[np.newaxis, ...] / 255.
 style_image = tf.image.resize(style_image, (256, 256))
 
 # Load image stylization module.
-model = tf.saved_model.load(Path.resolve(Path(__file__).parent / '../art_model').as_posix())
+model = tf.saved_model.load(Path.resolve(Path(__file__).parent.parent / 'art_model').as_posix())
 # Stylize image.
 outputs = model(tf.constant(content_image), tf.constant(style_image))
 stylized_image = outputs[0]
 stylized = stylized_image.numpy()
-stylized = stylized[0,:,:,:]
+stylized = stylized[0, :, :, :]
 
 mpimg.imsave(styled_image_path, stylized)
