@@ -6,6 +6,7 @@ jobs:
     executor:
       name: node/default
       tag: '10.4'
+    working_directory: $(pwd)/FE
     steps:
       - checkout
       - run: echo "$(pwd)"
