@@ -11,4 +11,4 @@ jobs:
       - node/with-cache:
           steps:
             - run: cd FE && npm install
-      - run: npm run test
+      - run: cd FE && npm run test
