@@ -8,10 +8,9 @@ jobs:
       tag: '10.4'
     steps:
       - checkout
-      - run: cd FE
       - run: echo "$(pwd)"
       - run: echo "$(ls -la)"
       - node/with-cache:
           steps:
-            - run: npm install
-      - run: npm run test
+            - run: cd FE && npm install
+      - run: cd FE && npm run test
