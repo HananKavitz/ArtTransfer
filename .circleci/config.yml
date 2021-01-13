@@ -5,7 +5,7 @@ jobs:
   build:
     executor:
       name: node/default
-      tag: '10.14.2'
+      tag: '12.16.1'
     working_directory: ~/project/FE
     steps:
       - checkout:
@@ -16,4 +16,4 @@ jobs:
           steps:
             - run: npm install
       - run: npm run test
-      - run: npm run build
+      - run: CI='' npm run build
