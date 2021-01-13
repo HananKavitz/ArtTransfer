@@ -7,8 +7,9 @@ jobs:
       name: node/default
       tag: '10.4'
     steps:
-      - checkout
+      - checkout:
+          path: ~/FE
       - node/with-cache:
           steps:
-            - run: cd FE && npm install
-      - run: cd FE && npm run test
+            - run: npm install
+      - run: npm run test
