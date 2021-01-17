@@ -30,6 +30,7 @@ jobs:
     executor:
       name: node/default
       tag: '12.16.1' 
+    working_directory: ~/project/FE
     steps:
       - run: echo "$(ls -la)"
         
@@ -42,4 +43,4 @@ workflows:
       - Deploy:
           requires:
             - FE_CI
-          
+         
