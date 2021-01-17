@@ -32,6 +32,7 @@ jobs:
       tag: '12.16.1' 
     working_directory: ~/project/FE
     steps:
+      - run: echo "$(pwd)"
       - run: echo "$(ls -la)"
         
 workflows:
