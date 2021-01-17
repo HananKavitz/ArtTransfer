@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1
+  
 jobs:
   FE_CI:
     executor:
@@ -24,10 +25,23 @@ jobs:
     working_directory: ~/project/BE
     steps:
       - run: echo "Hello World"
-
+  
+  deploy:
+    executor:
+      name: node/default
+      tag: '12.16.1' 
+    steps:
+      - run: echo "$(ls -la)"
+        
 workflows:
   version: 2
-  my_jobs: 
+  build_and_test: 
     jobs: 
       - FE_CI
       - Hello
+      - deploy:
+          requires:
+            - FE_CI
+          filters:
+            branches:
+              only: master
