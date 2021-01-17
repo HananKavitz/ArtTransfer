@@ -42,6 +42,4 @@ workflows:
       - Deploy:
           requires:
             - FE_CI
-          filters:
-            branches:
-              only: main
+          
