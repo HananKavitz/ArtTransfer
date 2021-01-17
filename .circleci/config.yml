@@ -21,7 +21,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - .
+            - ./build
   Hello:
     executor:
       name: node/default
