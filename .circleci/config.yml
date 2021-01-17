@@ -18,6 +18,10 @@ jobs:
             - run: npm install
       - run: npm run test
       - run: CI='' npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   Hello:
     executor:
       name: node/default
@@ -26,11 +30,15 @@ jobs:
     steps:
       - run: echo "Hello World"
   
-  deploy:
+  Deploy:
     executor:
       name: node/default
       tag: '12.16.1' 
+    working_directory: ~/project/FE
     steps:
+      - attach_workspace:
+          at: .
+      - run: echo "$(pwd)"
       - run: echo "$(ls -la)"
         
 workflows:
@@ -39,9 +47,7 @@ workflows:
     jobs: 
       - FE_CI
       - Hello
-      - deploy:
+      - Deploy:
           requires:
             - FE_CI
-          filters:
-            branches:
-              only: master
+         
