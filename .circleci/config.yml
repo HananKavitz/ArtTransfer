@@ -39,9 +39,9 @@ workflows:
     jobs: 
       - FE_CI
       - Hello
-      - deploy:
+      - Deploy:
           requires:
             - FE_CI
           filters:
             branches:
-              only: master
+              only: main
