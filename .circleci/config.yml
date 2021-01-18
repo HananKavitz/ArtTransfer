@@ -40,6 +40,7 @@ jobs:
           at: .
       - run: echo "$(pwd)"
       - run: echo "$(ls -la)"
+      - run: sudo apt get update
       - run: sudo apt install awscli
       - run: sudo aws configure set region $REGION
       - run: sudo aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
