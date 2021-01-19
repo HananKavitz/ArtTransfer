@@ -45,7 +45,7 @@ jobs:
       - run: sudo aws configure set region $REGION
       - run: sudo aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
       - run: sudo aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-      - run: sudo aws s3 cp ./build s3://$BUCKET_NAME/ --acl=bucket-owner-full-control
+      - run: sudo aws s3 cp ./build s3://$BUCKET_NAME/ --acl=bucket-owner-full-control --recursive
 
         
 workflows:
